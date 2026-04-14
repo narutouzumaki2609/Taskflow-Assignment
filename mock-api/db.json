@@ -1,0 +1,147 @@
+{
+  "users": [
+    {
+      "id": "u1a2b3c4",
+      "name": "Jane Doe",
+      "email": "jane@example.com",
+      "password": "$2b$10$hashedpassword1",
+      "created_at": "2026-04-01T10:00:00Z"
+    },
+    {
+      "id": "u2d3e4f5",
+      "name": "John Smith",
+      "email": "john@example.com",
+      "password": "$2b$10$hashedpassword2",
+      "created_at": "2026-04-02T11:30:00Z"
+    },
+    {
+      "id": "u3g4h5i6",
+      "name": "Alice Johnson",
+      "email": "alice@example.com",
+      "password": "$2b$10$hashedpassword3",
+      "created_at": "2026-04-03T09:15:00Z"
+    },
+    {
+      "id": "bcf9d9f4-d90e-4247-a957-ba8490a3a5ee",
+      "name": "Susmita",
+      "email": "sus@gmail.com",
+      "password": "Asasasas"
+    }
+  ],
+  "projects": [
+    {
+      "id": "p1a2b3",
+      "name": "Website Redesign",
+      "description": "Revamp company website UI/UX",
+      "owner_id": "u1a2b3c4",
+      "created_at": "2026-04-05T10:00:00Z"
+    },
+    {
+      "id": "p2c3d4",
+      "name": "Mobile App Launch",
+      "description": "Launch v1 of mobile application",
+      "owner_id": "u2d3e4f5",
+      "created_at": "2026-04-06T14:20:00Z"
+    },
+    {
+      "id": "p3e4f5",
+      "name": "Internal Dashboard",
+      "description": "Admin analytics dashboard",
+      "owner_id": "u1a2b3c4",
+      "created_at": "2026-04-07T08:45:00Z"
+    },
+    {
+      "id": "fc546ded-0474-4e46-b4af-64701f1bbbba",
+      "name": "Naggare release",
+      "description": "",
+      "owner_id": "6f46485e-df47-4598-aaa7-1b73af88522a",
+      "created_at": "2026-04-13T13:24:35.015Z"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1a2",
+      "title": "Design homepage",
+      "description": "Create Figma designs for homepage",
+      "status": "in_progress",
+      "priority": "high",
+      "project_id": "p1a2b3",
+      "assignee_id": "u3g4h5i6",
+      "due_date": "2026-04-15",
+      "created_at": "2026-04-08T10:00:00Z",
+      "updated_at": "2026-04-10T12:00:00Z"
+    },
+    {
+      "id": "t2b3",
+      "title": "Setup backend",
+      "description": "Initialize Node.js server",
+      "status": "todo",
+      "priority": "medium",
+      "project_id": "p1a2b3",
+      "assignee_id": "u2d3e4f5",
+      "due_date": "2026-04-18",
+      "created_at": "2026-04-08T11:00:00Z",
+      "updated_at": "2026-04-08T11:00:00Z"
+    },
+    {
+      "id": "t3c4",
+      "title": "API integration",
+      "description": "Connect frontend with APIs",
+      "status": "in_progress",
+      "priority": "high",
+      "project_id": "p2c3d4",
+      "assignee_id": "u1a2b3c4",
+      "due_date": "2026-04-20",
+      "created_at": "2026-04-09T09:30:00Z",
+      "updated_at": "2026-04-13T13:22:16.558Z"
+    },
+    {
+      "id": "t4d5",
+      "title": "Testing",
+      "description": "Write unit and integration tests",
+      "status": "done",
+      "priority": "medium",
+      "project_id": "p2c3d4",
+      "assignee_id": "u3g4h5i6",
+      "due_date": "2026-04-22",
+      "created_at": "2026-04-10T13:00:00Z",
+      "updated_at": "2026-04-13T13:19:53.072Z"
+    },
+    {
+      "id": "t5e6",
+      "title": "Deploy dashboard",
+      "description": "Deploy to AWS",
+      "status": "done",
+      "priority": "high",
+      "project_id": "p3e4f5",
+      "assignee_id": "u2d3e4f5",
+      "due_date": "2026-04-12",
+      "created_at": "2026-04-09T16:00:00Z",
+      "updated_at": "2026-04-12T18:00:00Z"
+    },
+    {
+      "id": "t6f7",
+      "title": "Add analytics",
+      "description": "Integrate charts and metrics",
+      "status": "todo",
+      "priority": "low",
+      "project_id": "p3e4f5",
+      "assignee_id": null,
+      "due_date": "2026-04-25",
+      "created_at": "2026-04-11T10:30:00Z",
+      "updated_at": "2026-04-11T10:30:00Z"
+    },
+    {
+      "id": "960fee8f-f2e9-4bc6-aa59-36b18d73f087",
+      "project_id": "p2c3d4",
+      "status": "todo",
+      "created_at": "2026-04-13T13:22:08.387Z",
+      "updated_at": "2026-04-13T13:22:08.387Z",
+      "title": "Complete the SCR 0101",
+      "description": "nagare needs to be released this week",
+      "priority": "high",
+      "assignee_id": "bcf9d9f4-d90e-4247-a957-ba8490a3a5ee",
+      "due_date": "2026-04-30"
+    }
+  ]
+}

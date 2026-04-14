@@ -1,0 +1,22 @@
+version: "5.1.1"
+
+services:
+  api:
+    build: ./mock-api
+    container_name: api_server
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "${API_PORT}:4000"
+
+  frontend:
+    build: ./taskflow_frontend
+    container_name: react_app
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "${FRONTEND_PORT}:3000"
+    depends_on:
+      - api

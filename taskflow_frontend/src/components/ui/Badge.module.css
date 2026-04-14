@@ -1,0 +1,117 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+/* Status */
+.status_todo {
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  border-color: var(--border-strong);
+}
+.status_in_progress {
+  background: var(--info-dim);
+  color: var(--info);
+  border-color: rgba(79, 163, 232, 0.25);
+}
+.status_done {
+  background: var(--success-dim);
+  color: var(--success);
+  border-color: rgba(62, 207, 107, 0.25);
+}
+
+/* Priority */
+.priority_low {
+  background: var(--success-dim);
+  color: var(--success);
+  border-color: rgba(62, 207, 107, 0.2);
+}
+.priority_medium {
+  background: var(--warning-dim);
+  color: var(--warning);
+  border-color: rgba(232, 160, 32, 0.2);
+}
+.priority_high {
+  background: var(--danger-dim);
+  color: var(--danger);
+  border-color: rgba(224, 82, 82, 0.2);
+}
+
+/* Avatar */
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  flex-shrink: 0;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Empty State */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 48px 24px;
+  text-align: center;
+}
+.emptyIcon {
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+.emptyTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+.emptyDesc {
+  font-size: 12px;
+  color: var(--text-muted);
+  max-width: 280px;
+  line-height: 1.6;
+}
+.emptyAction { margin-top: 6px; }
+
+/* Error box */
+.errorBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--danger-dim);
+  border: 1px solid rgba(224, 82, 82, 0.25);
+  border-radius: var(--radius-md);
+  color: var(--danger);
+  font-size: 12px;
+  font-family: var(--font-mono);
+}
+.retryBtn {
+  margin-left: auto;
+  background: none;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  border-radius: var(--radius-sm);
+  padding: 2px 8px;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.retryBtn:hover {
+  background: var(--danger);
+  color: #fff;
+}
