@@ -9,10 +9,9 @@ A full-stack task management system for teams. Create projects, add tasks, assig
 1. [Overview](#overview)
 2. [Architecture Decisions](#architecture-decisions)
 3. [Running Locally](#running-locally)
-4. [Running Migrations](#running-migrations)
-5. [Test Credentials](#test-credentials)
-6. [API Reference](#api-reference)
-7. [What I'd Do With More Time](#what-id-do-with-more-time)
+4. [Test Credentials](#test-credentials)
+5. [API Reference](#api-reference)
+6. [What I'd Do With More Time](#what-id-do-with-more-time)
 
 ---
 
@@ -67,13 +66,29 @@ taskflow/
 
 ## 2. Architecture Decisions
 
-### CSS Modules — no component library
+### React + TypeScript + Vite
 
-The spec said to state the choice. Using a library (shadcn, MUI, Chakra) would have solved layout quickly but added 300–500 kB of JS to the bundle and made the visual identity generic. CSS Modules give full control over the design with zero runtime overhead. The tradeoff is more files — every component has a `.module.css` sibling — but each is small and co-located.
+TypeScript catches API contract breaks at compile time — a renamed field is a build error, not a silent runtime bug. Vite was chosen over CRA for faster dev startup and smaller production bundles.
 
-### Vite at build time, nginx at runtime
+### No Component Library
 
-`vite build` produces a static `dist/` folder (HTML + hashed JS/CSS bundles). nginx serves that folder and handles SPA fallback (`try_files $uri /index.html`) so React Router deep-links work. The final frontend image is ~25 MB and has no Node process at runtime.
+Built all UI from scratch with CSS Modules. Libraries like MUI or shadcn add 300+ kB to the bundle and impose a visual identity. For this scope, the tradeoff isn't worth it.
+
+### CSS Modules + CSS Custom Properties
+
+Design tokens live in globals.css as CSS variables. ThemeContext flips a single data-theme attribute on <html> to switch themes — no re-render cascade, no runtime style injection.
+
+### Two Contexts, No State Library
+
+AuthContext (JWT + user) and ThemeContext (dark/light) are the only globals. Server state lives in useState inside each page — projects and tasks aren't shared across pages, so a global store adds indirection with no benefit.
+
+### Nested Layout Routes for Auth Guards
+
+ProtectedLayout redirects to /login if unauthenticated. AuthLayout redirects to /projects if already logged in. Both use React Router v6's layout nesting — no custom HOC or wrapper component needed.
+
+### Centralised API Layer
+
+All fetch calls live in src/api/client.ts. Token injection, 204 handling, and error parsing happen once. UI components never call fetch directly.
 
 ### Multi-stage Docker builds
 
@@ -83,10 +98,6 @@ Both Dockerfiles use two stages:
 - **Frontend**: file added in the code
 
 This keeps both images lean and avoids shipping compilers or `node_modules` into production.
-
-### `VITE_API_BASE_URL` as a build-time arg
-
-Vite replaces `import.meta.env.VITE_*` at bundle time — there is no runtime config injection in a static site. The URL must be the address the **browser** uses (not the Docker internal hostname). It is passed as a `--build-arg` in `docker-compose.yml` so it can be overridden per environment without changing source code.
 
 ---
 
